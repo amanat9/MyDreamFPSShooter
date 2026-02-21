@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour
     public GameObject player;
 
     private Transform mytf;
+    public float numOfEnemierDestoryed = 0;
 
 
 
@@ -17,7 +19,8 @@ public class Player : MonoBehaviour
     {
         mytf = player.GetComponent<Transform>();
     }
-
+    
+    public TextMeshProUGUI uiTextforEnemyNumber;
     // Update is called once per frame
     void Update()
     {
@@ -27,5 +30,7 @@ public class Player : MonoBehaviour
         mytf.Translate(Vector3.forward * verticalInput);
         mytf.Translate(Vector3.right * horizontalInput);
 
+
+        uiTextforEnemyNumber.text = "Num of Enemies Destroyed: " + numOfEnemierDestoryed;
     }
 }
