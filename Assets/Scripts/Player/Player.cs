@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
     public GameObject player;
+    public float speed;
 
     private Transform mytf;
     public float numOfEnemierDestoryed = 0;
@@ -27,8 +28,8 @@ public class Player : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
-        mytf.Translate(Vector3.forward * verticalInput);
-        mytf.Translate(Vector3.right * horizontalInput);
+        mytf.Translate(Vector3.forward * verticalInput *Time.deltaTime *speed );
+        mytf.Translate(Vector3.right * horizontalInput * Time.deltaTime *speed);
 
 
         uiTextforEnemyNumber.text = "Num of Enemies Destroyed: " + numOfEnemierDestoryed;
